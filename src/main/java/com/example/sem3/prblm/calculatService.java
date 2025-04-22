@@ -4,25 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-@Transactional
+
 public class calculatService {
-    public Long resta(Long a, Long b) throws equalException{
-        if (a==b){
-            throw new equalException("'a' y 'b' no pueden ser iguales");
+    public Long division(Long a, Long b) throws ArithmeticException {
+
+
+        if (b==0){
+            throw new ArithmeticException("No se puede realizar la division entre 0 ");
         }
 
-        if (a<b){
-            throw new ArithmeticException("'a' no puede ser menor a 'b'");
-        }
-
-        return a-b;
+        return a/b;
     }
 
 
-public class equalExcepgtion extends RuntimeException{
-        public equalException(String message){
-            super(message);
-        }
-}
 
 }
